@@ -1,90 +1,446 @@
+import React from "react";
 import { Link } from "react-router-dom";
+import "../App.css";
 
 function Bikes() {
-  const bikes = [
-    {
-      id: 1,
-      name: "TVS Raider 125",
-      price: "₹1,10,000",
-      image:
-        "https://images.unsplash.com/photo-1558981806-ec527fa84c39?w=600",
-      description: "A stylish 125cc commuter bike with excellent mileage and sporty design."
-    },
-    {
-      id: 2,
-      name: "TVS Apache RTR 160",
-      price: "₹1,45,000",
-      image:
-        "https://images.unsplash.com/photo-1558981359-219d6364c9c8?w=600",
-      description: "Performance bike with aggressive styling and racing DNA."
-    },
-    {
-      id: 3,
-      name: "Yamaha R15 V4",
-      price: "₹2,10,000",
-      image:
-        "https://images.unsplash.com/photo-1609630875171-b1321377ee65?w=600",
-      description: "Premium sports bike with advanced technology and stunning looks."
-    },
-    {
-      id: 4,
-      name: "Royal Enfield Classic 350",
-      price: "₹2,35,000",
-      image:
-        "https://images.unsplash.com/photo-1622185135505-2d7950039943?w=600",
-      description: "Classic styling, refined engine and comfortable long rides."
-    },
-    {
-      id: 5,
-      name: "KTM Duke 200",
-      price: "₹2,20,000",
-      image:
-        "https://images.unsplash.com/photo-1611241443709-8dcb9f9b6d59?w=600",
-      description: "Powerful street bike with sharp handling and sporty performance."
-    },
-    {
-      id: 6,
-      name: "Honda SP125",
-      price: "₹1,05,000",
-      image:
-        "https://images.unsplash.com/photo-1580310614729-ccd69652491d?w=600",
-      description: "Reliable commuter bike with smooth engine and excellent fuel efficiency."
-    }
-  ];
-
   return (
-    <div className="bikes-page">
-      <h1 className="page-title">Our Bikes</h1>
+    <div className="premium-bikes-page">
 
-      <div className="bike-grid">
-        {bikes.map((bike) => (
-          <div className="bike-card" key={bike.id}>
-            <img src={bike.image} alt={bike.name} />
+      {/* ================= HERO ================= */}
 
-            <div className="bike-info">
-              <h2>{bike.name}</h2>
+      <section className="bikes-hero">
 
-              <h3 className="price">{bike.price}</h3>
+        <div className="bikes-hero-content">
 
-              <p>{bike.description}</p>
+          <span className="hero-badge">
+            🏍️ Premium Motorcycle Collection
+          </span>
 
-              <div className="card-buttons">
+          <h1>
+            Find Your
+            <br />
+            Dream Machine
+          </h1>
+
+          <p>
+            Explore India's most loved motorcycles with
+            premium styling, advanced technology, outstanding
+            mileage, and unbeatable prices.
+          </p>
+
+        </div>
+
+      </section>
+
+      {/* ================= SEARCH ================= */}
+
+      <section className="bike-search-section">
+
+        <div className="search-box">
+
+          <input
+            type="text"
+            placeholder="🔍 Search your favourite bike..."
+          />
+
+          <button>
+            Search
+          </button>
+
+        </div>
+
+      </section>
+
+      {/* ================= CATEGORY ================= */}
+
+      <section className="bike-category">
+
+        <h2>Browse Categories</h2>
+
+        <div className="category-grid">
+
+          <div className="category-card">
+            🏍️
+            <h3>Sports</h3>
+          </div>
+
+          <div className="category-card">
+            👑
+            <h3>Cruiser</h3>
+          </div>
+
+          <div className="category-card">
+            🌍
+            <h3>Adventure</h3>
+          </div>
+
+          <div className="category-card">
+            ⚡
+            <h3>Street</h3>
+          </div>
+
+          <div className="category-card">
+            🛵
+            <h3>Scooter</h3>
+          </div>
+
+        </div>
+
+      </section>
+
+      {/* ================= FEATURED COLLECTION ================= */}
+
+      <section className="premium-bike-list">
+
+        <h2>Featured Collection</h2>
+
+        <p>
+          Choose from our best-selling motorcycles with
+          premium performance and attractive offers.
+        </p>
+
+        <div className="premium-bike-grid">
+
+                  {/* ================= BIKE 1 ================= */}
+
+          <div className="premium-bike-card">
+
+            <span className="bike-badge">🔥 Best Seller</span>
+
+            <img
+              src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?w=900"
+              alt="TVS Raider 125"
+            />
+
+            <div className="bike-content">
+
+              <div className="bike-top">
+
+                <h3>TVS Raider 125</h3>
+
+                <span className="rating">
+                  ⭐⭐⭐⭐⭐
+                </span>
+
+              </div>
+
+              <div className="spec-grid">
+
+                <span>⚙️ 124.8cc</span>
+                <span>⛽ 67 km/l</span>
+                <span>💨 99 km/h</span>
+                <span>💰 ₹1.10 Lakh</span>
+
+              </div>
+
+              <div className="bike-action">
+
                 <Link to="/booking">
-                  <button className="book-btn">
+                  <button className="premium-btn">
                     Book Now
                   </button>
                 </Link>
 
                 <Link to="/testdrive">
-                  <button className="test-btn">
-                    Test Drive
+                  <button className="premium-btn outline-btn">
+                    Test Ride
+                  </button>
+                </Link>
+
+              </div>
+
+            </div>
+
+          </div>
+
+          {/* ================= BIKE 2 ================= */}
+
+          <div className="premium-bike-card">
+
+            <span className="bike-badge new">
+              🆕 New Arrival
+            </span>
+
+            <img
+              src="https://images.unsplash.com/photo-1517846693594-1567da72af75?w=900"
+              alt="Yamaha R15"
+            />
+
+            <div className="bike-content">
+
+              <div className="bike-top">
+
+                <h3>Yamaha R15 V4</h3>
+
+                <span className="rating">
+                  ⭐⭐⭐⭐⭐
+                </span>
+
+              </div>
+
+              <div className="spec-grid">
+
+                <span>⚙️ 155cc</span>
+                <span>⛽ 51 km/l</span>
+                <span>💨 140 km/h</span>
+                <span>💰 ₹1.95 Lakh</span>
+
+              </div>
+
+              <div className="bike-action">
+
+                <Link to="/booking">
+                  <button className="premium-btn">
+                    Book Now
+                  </button>
+                </Link>
+
+                <Link to="/testdrive">
+                  <button className="premium-btn outline-btn">
+                    Test Ride
+                  </button>
+                </Link>
+
+              </div>
+
+            </div>
+
+          </div>
+
+          {/* ================= BIKE 3 ================= */}
+
+          <div className="premium-bike-card">
+
+            <span className="bike-badge hot">
+              ⚡ Hot Deal
+            </span>
+
+            <img
+              src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=900"
+              alt="Hunter 350"
+            />
+
+            <div className="bike-content">
+
+              <div className="bike-top">
+
+                <h3>Royal Enfield Hunter 350</h3>
+
+                <span className="rating">
+                  ⭐⭐⭐⭐⭐
+                </span>
+
+              </div>
+
+              <div className="spec-grid">
+
+                <span>⚙️ 349cc</span>
+                <span>⛽ 36 km/l</span>
+                <span>💨 130 km/h</span>
+                <span>💰 ₹1.75 Lakh</span>
+
+              </div>
+
+              <div className="bike-action">
+
+                <Link to="/booking">
+                  <button className="premium-btn">
+                    Book Now
+                  </button>
+                </Link>
+
+                <Link to="/testdrive">
+                  <button className="premium-btn outline-btn">
+                    Test Ride
+                  </button>
+                </Link>
+
+              </div>
+
+            </div>
+
+          </div>
+
+          {/* ================= BIKE 4 ================= */}
+
+          <div className="premium-bike-card">
+
+            <span className="bike-badge">
+              🚀 Trending
+            </span>
+
+            <img
+              src="https://images.unsplash.com/photo-1549399542-7e3f8b79c341?w=900"
+              alt="KTM Duke 250"
+            />
+
+            <div className="bike-content">
+
+              <div className="bike-top">
+
+                <h3>KTM Duke 250</h3>
+
+                <span className="rating">
+                  ⭐⭐⭐⭐⭐
+                </span>
+
+              </div>
+
+              <div className="spec-grid">
+
+                <span>⚙️ 248cc</span>
+                <span>⛽ 35 km/l</span>
+                <span>💨 148 km/h</span>
+                <span>💰 ₹2.45 Lakh</span>
+
+              </div>
+
+              <div className="bike-action">
+
+                <Link to="/booking">
+                  <button className="premium-btn">
+                    Book Now
+                  </button>
+                </Link>
+
+                <Link to="/testdrive">
+                  <button className="premium-btn outline-btn">
+                    Test Ride
+                  </button>
+                </Link>
+
+              </div>
+
+            </div>
+
+          </div>
+                    {/* ================= BIKE 5 ================= */}
+
+          <div className="premium-bike-card">
+
+            <span className="bike-badge limited">💎 Limited Edition</span>
+
+            <img
+              src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=900"
+              alt="Apache RTR 310"
+            />
+
+            <div className="bike-content">
+
+              <div className="bike-top">
+                <h3>TVS Apache RTR 310</h3>
+                <span className="rating">⭐⭐⭐⭐⭐</span>
+              </div>
+
+              <div className="spec-grid">
+                <span>⚙️ 312cc</span>
+                <span>⛽ 35 km/l</span>
+                <span>💨 160 km/h</span>
+                <span>💰 ₹2.55 Lakh</span>
+              </div>
+
+              <div className="bike-action">
+                <Link to="/booking">
+                  <button className="premium-btn">Book Now</button>
+                </Link>
+
+                <Link to="/testdrive">
+                  <button className="premium-btn outline-btn">
+                    Test Ride
                   </button>
                 </Link>
               </div>
+
             </div>
+
           </div>
-        ))}
+
+          {/* ================= BIKE 6 ================= */}
+
+          <div className="premium-bike-card">
+
+            <span className="bike-badge hot">🔥 Popular</span>
+
+            <img
+              src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=900"
+              alt="MT15"
+            />
+
+            <div className="bike-content">
+
+              <div className="bike-top">
+                <h3>Yamaha MT-15</h3>
+                <span className="rating">⭐⭐⭐⭐⭐</span>
+              </div>
+
+              <div className="spec-grid">
+                <span>⚙️ 155cc</span>
+                <span>⛽ 48 km/l</span>
+                <span>💨 135 km/h</span>
+                <span>💰 ₹1.82 Lakh</span>
+              </div>
+
+              <div className="bike-action">
+                <Link to="/booking">
+                  <button className="premium-btn">Book Now</button>
+                </Link>
+
+                <Link to="/testdrive">
+                  <button className="premium-btn outline-btn">
+                    Test Ride
+                  </button>
+                </Link>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+      {/* ================= CALL TO ACTION ================= */}
+
+      <section className="bike-cta">
+
+        <h2>Ready To Own Your Dream Bike?</h2>
+
+        <p>
+          Book today and enjoy exciting offers,
+          easy EMI options and free accessories.
+        </p>
+
+        <div className="cta-buttons">
+
+          <Link to="/booking">
+            <button className="premium-btn">
+              Book Your Bike
+            </button>
+          </Link>
+
+          <Link to="/testdrive">
+            <button className="premium-btn outline-btn">
+              Schedule Test Ride
+            </button>
+          </Link>
+
+        </div>
+
+      </section>
+
+      {/* ================= BACK BUTTON ================= */}
+
+      <div className="bikes-bottom">
+
+        <Link to="/">
+          <button className="back-btn">
+            ← Back To Home
+          </button>
+        </Link>
+
       </div>
+
     </div>
   );
 }

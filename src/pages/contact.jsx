@@ -1,100 +1,216 @@
-import { useState } from "react";
+import React from "react";
+import { Link } from "react-router-dom";
+import "../App.css";
 
 function Contact() {
-  const [contact, setContact] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
-
-  const handleChange = (e) => {
-    setContact({
-      ...contact,
-      [e.target.name]: e.target.value,
-    });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    alert(
-      `📩 Thank you ${contact.name}!\n\nYour message has been sent successfully. We'll contact you soon.`
-    );
-
-    setContact({
-      name: "",
-      email: "",
-      message: "",
-    });
-  };
-
   return (
     <div className="contact-page">
 
-      <h1>Contact Us</h1>
+      {/* HERO SECTION */}
 
-      <div className="contact-container">
+      <section className="contact-hero">
 
-        <div className="contact-info">
-          <h2>🏍 Bike Store</h2>
+        <h1>Get In Touch</h1>
 
+        <p>
+          We're always ready to help you find your dream bike.
+          Contact our team anytime.
+        </p>
+
+      </section>
+
+      {/* CONTACT INFO */}
+
+      <section className="contact-info">
+
+        <div className="info-card">
+          <span>📍</span>
+          <h3>Showroom</h3>
           <p>
-            <strong>📍 Address:</strong><br />
-            123 Bike Street,<br />
-            Chennai, Tamil Nadu - 600001
+            Bike Hub Motors<br />
+            Chennai, Tamil Nadu
           </p>
+        </div>
 
+        <div className="info-card">
+          <span>📞</span>
+          <h3>Phone</h3>
           <p>
-            <strong>📞 Phone:</strong><br />
             +91 98765 43210
           </p>
+        </div>
 
+        <div className="info-card">
+          <span>📧</span>
+          <h3>Email</h3>
           <p>
-            <strong>📧 Email:</strong><br />
-            bikestore@gmail.com
+            support@bikehub.com
           </p>
+        </div>
 
+        <div className="info-card">
+          <span>🕒</span>
+          <h3>Working Hours</h3>
           <p>
-            <strong>🕒 Working Hours:</strong><br />
-            Monday - Saturday<br />
+            Mon - Sat<br />
             9:00 AM - 8:00 PM
           </p>
         </div>
 
-        <form className="contact-form" onSubmit={handleSubmit}>
+      </section>
+            {/* CONTACT FORM */}
 
-          <input
-            type="text"
-            name="name"
-            placeholder="Your Name"
-            value={contact.name}
-            onChange={handleChange}
-            required
-          />
+      <section className="contact-section">
 
-          <input
-            type="email"
-            name="email"
-            placeholder="Your Email"
-            value={contact.email}
-            onChange={handleChange}
-            required
-          />
+        <div className="contact-form">
 
-          <textarea
-            name="message"
-            rows="6"
-            placeholder="Type your message..."
-            value={contact.message}
-            onChange={handleChange}
-            required
-          ></textarea>
+          <h2>Send Us a Message</h2>
 
-          <button type="submit">
-            Send Message
+          <form>
+
+            <input
+              type="text"
+              placeholder="Full Name"
+            />
+
+            <input
+              type="email"
+              placeholder="Email Address"
+            />
+
+            <input
+              type="tel"
+              placeholder="Mobile Number"
+            />
+
+            <input
+              type="text"
+              placeholder="Subject"
+            />
+
+            <textarea
+              rows="6"
+              placeholder="Write your message..."
+            ></textarea>
+
+            <button className="contact-btn">
+              Send Message
+            </button>
+
+          </form>
+
+        </div>
+
+        <div className="contact-side">
+
+          <h2>Connect With Us</h2>
+
+          <p>
+            Follow us on social media to stay updated with
+            the latest bike launches, offers, events, and
+            exclusive test ride opportunities.
+          </p>
+
+          <div className="social-grid">
+
+            <div className="social-card instagram">
+              📷
+              <h3>Instagram</h3>
+            </div>
+
+            <div className="social-card facebook">
+              👍
+              <h3>Facebook</h3>
+            </div>
+
+            <div className="social-card youtube">
+              ▶️
+              <h3>YouTube</h3>
+            </div>
+
+            <div className="social-card whatsapp">
+              💬
+              <h3>WhatsApp</h3>
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+            {/* LOCATION */}
+
+      <section className="contact-map">
+
+        <h2>Visit Our Showroom</h2>
+
+        <div className="map-box">
+
+          <p>📍 Bike Hub Motors</p>
+
+          <p>123 GST Road, Chennai, Tamil Nadu</p>
+
+          <p>
+            (Google Maps can be embedded here later.)
+          </p>
+
+        </div>
+
+      </section>
+
+      {/* FAQ */}
+
+      <section className="contact-faq">
+
+        <h2>Frequently Asked Questions</h2>
+
+        <div className="faq-grid">
+
+          <div className="faq-card">
+            <h3>🏍️ Can I book a bike online?</h3>
+            <p>
+              Yes, you can easily reserve your favorite bike
+              through our Booking page.
+            </p>
+          </div>
+
+          <div className="faq-card">
+            <h3>🚀 Is the test ride free?</h3>
+            <p>
+              Yes. Test rides are completely free with a valid
+              driving license.
+            </p>
+          </div>
+
+          <div className="faq-card">
+            <h3>💳 Do you provide EMI?</h3>
+            <p>
+              Yes, we provide flexible EMI options through
+              multiple banking partners.
+            </p>
+          </div>
+
+          <div className="faq-card">
+            <h3>🛠️ Do you provide servicing?</h3>
+            <p>
+              Yes, we offer genuine spare parts and
+              authorized service support.
+            </p>
+          </div>
+
+        </div>
+
+      </section>
+
+      {/* BACK BUTTON */}
+
+      <div className="contact-bottom">
+
+        <Link to="/">
+          <button className="back-btn">
+            ← Back To Home
           </button>
-
-        </form>
+        </Link>
 
       </div>
 

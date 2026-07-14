@@ -1,110 +1,215 @@
-import { useState } from "react";
+import React from "react";
+import { Link } from "react-router-dom";
+import "../App.css";
 
 function TestDrive() {
-  const [form, setForm] = useState({
-    name: "",
-    phone: "",
-    bike: "",
-    date: "",
-    time: "",
-    city: "",
-  });
-
-  const handleChange = (e) => {
-    setForm({
-      ...form,
-      [e.target.name]: e.target.value,
-    });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    alert(
-      `🚗 Test Drive Scheduled!\n\nThank you ${form.name}.\nYour test drive has been booked successfully.`
-    );
-
-    setForm({
-      name: "",
-      phone: "",
-      bike: "",
-      date: "",
-      time: "",
-      city: "",
-    });
-  };
-
   return (
-    <div className="testdrive-page">
-      <div className="testdrive-container">
-        <h1>Book a Test Drive</h1>
+    <div className="ride-page">
 
-        <form className="testdrive-form" onSubmit={handleSubmit}>
+      {/* HERO SECTION */}
+
+      <section className="ride-hero">
+
+        <div className="ride-content">
+
+          <h1>
+            Feel The Power <br />
+            Before You Buy
+          </h1>
+
+          <p>
+            Experience performance, comfort, speed and confidence
+            with an exclusive test ride.
+          </p>
+
+          <a href="#rideform">
+            <button className="ride-btn">
+              Book Test Ride
+            </button>
+          </a>
+
+        </div>
+
+        <div className="ride-image">
+
+          <img
+            src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?w=900"
+            alt="Bike"
+          />
+
+        </div>
+
+      </section>
+
+      {/* WHY CHOOSE */}
+
+      <section className="ride-features">
+
+        <h2>Why Ride With Us?</h2>
+
+        <div className="feature-grid">
+
+          <div className="ride-box">
+            🏍️
+            <h3>Premium Bikes</h3>
+            <p>Ride the latest models before purchasing.</p>
+          </div>
+
+          <div className="ride-box">
+            🛡️
+            <h3>Safety Gear</h3>
+            <p>Helmet & riding gear provided free.</p>
+          </div>
+
+          <div className="ride-box">
+            👨‍🔧
+            <h3>Expert Guidance</h3>
+            <p>Professional riding experts assist you.</p>
+          </div>
+
+          <div className="ride-box">
+            ⏰
+            <h3>30 Minute Ride</h3>
+            <p>City & highway riding experience.</p>
+          </div>
+
+        </div>
+
+      </section>
+            {/* RIDE PROCESS */}
+
+      <section className="ride-process">
+
+        <h2>How Your Test Ride Works</h2>
+
+        <div className="timeline">
+
+          <div className="step">
+            <div className="circle">1</div>
+            <h3>Register</h3>
+            <p>Fill in your personal details.</p>
+          </div>
+
+          <div className="step">
+            <div className="circle">2</div>
+            <h3>Verify License</h3>
+            <p>Bring your valid driving license.</p>
+          </div>
+
+          <div className="step">
+            <div className="circle">3</div>
+            <h3>Safety Briefing</h3>
+            <p>Our experts explain riding guidelines.</p>
+          </div>
+
+          <div className="step">
+            <div className="circle">4</div>
+            <h3>Enjoy The Ride</h3>
+            <p>Experience the bike on city roads.</p>
+          </div>
+
+          <div className="step">
+            <div className="circle">5</div>
+            <h3>Feedback</h3>
+            <p>Share your experience and get offers.</p>
+          </div>
+
+        </div>
+
+      </section>
+
+      {/* BOOK TEST RIDE */}
+
+      <section className="ride-book" id="rideform">
+
+        <h2>Reserve Your Test Ride</h2>
+
+        <form className="ride-form">
 
           <input
             type="text"
-            name="name"
             placeholder="Full Name"
-            value={form.name}
-            onChange={handleChange}
-            required
           />
 
           <input
             type="tel"
-            name="phone"
             placeholder="Mobile Number"
-            value={form.phone}
-            onChange={handleChange}
-            required
           />
 
-          <select
-            name="bike"
-            value={form.bike}
-            onChange={handleChange}
-            required
-          >
-            <option value="">Select Bike</option>
+          <select>
+            <option>Select Bike</option>
             <option>TVS Raider 125</option>
-            <option>TVS Apache RTR 160</option>
             <option>Yamaha R15 V4</option>
-            <option>Royal Enfield Classic 350</option>
-            <option>KTM Duke 200</option>
-            <option>Honda SP125</option>
+            <option>Royal Enfield Hunter 350</option>
+            <option>KTM Duke 250</option>
+            <option>Bajaj Pulsar NS200</option>
           </select>
 
-          <input
-            type="date"
-            name="date"
-            value={form.date}
-            onChange={handleChange}
-            required
-          />
+          <input type="date" />
 
-          <input
-            type="time"
-            name="time"
-            value={form.time}
-            onChange={handleChange}
-            required
-          />
+          <input type="time" />
 
-          <input
-            type="text"
-            name="city"
-            placeholder="Your City"
-            value={form.city}
-            onChange={handleChange}
-            required
-          />
+          <textarea
+            rows="5"
+            placeholder="Additional Message"
+          ></textarea>
 
-          <button type="submit">
-            Schedule Test Drive
+          <button className="ride-submit">
+            Book My Ride
           </button>
 
         </form>
+
+      </section>
+
+      {/* CUSTOMER REVIEWS */}
+
+      <section className="ride-review">
+
+        <h2>Customer Reviews</h2>
+
+        <div className="review-grid">
+
+          <div className="review-card">
+            ⭐⭐⭐⭐⭐
+            <p>
+              "The test ride helped me choose the perfect bike.
+              Amazing experience!"
+            </p>
+            <h4>- Arjun</h4>
+          </div>
+
+          <div className="review-card">
+            ⭐⭐⭐⭐⭐
+            <p>
+              "Professional staff and smooth booking process.
+              Highly recommended."
+            </p>
+            <h4>- Karthik</h4>
+          </div>
+
+          <div className="review-card">
+            ⭐⭐⭐⭐⭐
+            <p>
+              "Loved riding the Yamaha R15 before buying it."
+            </p>
+            <h4>- Rahul</h4>
+          </div>
+
+        </div>
+
+      </section>
+
+      <div className="ride-home">
+
+        <Link to="/">
+          <button className="back-btn">
+            ← Back To Home
+          </button>
+        </Link>
+
       </div>
+
     </div>
   );
 }
