@@ -1,8 +1,20 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 import "../App.css";
 
 function Booking() {
+  const handleBooking = (e) => {
+  e.preventDefault();
+
+  Swal.fire({
+    title: "🎉 Booking Successful!",
+    text: "Thank you for choosing our Bike Store. We will contact you shortly.",
+    icon: "success",
+    confirmButtonText: "Awesome!",
+    confirmButtonColor: "#2563eb",
+  });
+};
   return (
     <div className="booking-page">
 
@@ -19,7 +31,7 @@ function Booking() {
 
           <h2>Booking Details</h2>
 
-          <form className="booking-form">
+          <form className="booking-form" onSubmit={handleBooking}>
 
             <div className="input-box">
               <label>Full Name</label>

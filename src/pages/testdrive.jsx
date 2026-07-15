@@ -1,8 +1,20 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 import "../App.css";
 
 function TestDrive() {
+  const handleTestRide = (e) => {
+  e.preventDefault();
+
+  Swal.fire({
+    title: "🏍️ Test Ride Scheduled!",
+    text: "Your test ride has been booked successfully. Our team will contact you soon.",
+    icon: "success",
+    confirmButtonText: "Great!",
+    confirmButtonColor: "#2563eb",
+  });
+};
   return (
     <div className="ride-page">
 
@@ -124,7 +136,7 @@ function TestDrive() {
 
         <h2>Reserve Your Test Ride</h2>
 
-        <form className="ride-form">
+        <form className="ride-form" onSubmit={handleTestRide}>
 
           <input
             type="text"
@@ -203,10 +215,9 @@ function TestDrive() {
       <div className="ride-home">
 
         <Link to="/">
-          <button className="back-btn">
-            ← Back To Home
-          </button>
-        </Link>
+<button type="submit" className="testdrive-btn">
+  Schedule Test Ride
+</button>        </Link>
 
       </div>
 
